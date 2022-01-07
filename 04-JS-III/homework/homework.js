@@ -48,7 +48,7 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
-  array.push(elemento);
+  array.unshift(elemento);
   return array;
 }
 
@@ -68,7 +68,7 @@ function arrayContiene(array, elemento) {
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
   for(var i=0; i<array.length; i++){
-    if(array[i]=elemento){
+    if(array[i]===elemento){
       return true;
     }
   }
@@ -140,9 +140,9 @@ function diaDeLaSemana(numeroDeDia) {
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
   if(numeroDeDia===1 || numeroDeDia===7){
-    return "Fin de semana"
+    return "Es fin de semana"
   }else{
-    return "Es dia laboral"
+    return "Es dia Laboral"
   }    
 } 
 
@@ -163,11 +163,11 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  for(var i=0; i<arreglo.length; i++){
-    if(arreglo[i]!==arreglo[i+1]){
+  for (var i =0 ; i < arreglo.length - 1; i++) {
+    if(arreglo[i] !== arreglo[i+1]){
       return false
     }
-  }  
+  }
   return true
 } 
 
@@ -183,8 +183,8 @@ function mesesDelAño(array) {
       nuevoArray.push(array[i]);
     }
   }
-  if(nuevoArray-length<3){
-    return "No se encuentran los meses pedidos";
+  if(nuevoArray.length<3){
+    return "No se encontraron los meses pedidos";
   }else{
     return nuevoArray;
   }
@@ -223,7 +223,7 @@ function breakStatement(numero) {
     }
   }
   if(i<10){
-    return 'Se interrunpio la ejecucion';
+    return 'Se interrumpió la ejecución';
   }else{
     return array;
   }
@@ -237,6 +237,16 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var array=[];
+  var suma=numero;
+  for(var i=0; i<10; i++){
+    if(i===5) continue;
+    else{
+      suma=suma+2;
+      array.push(suma);
+    }
+  }
+  return array;
 }
 
 
